@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar color="grey-blue">
+    <ion-title>
+      제품 검색
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+  <ion-item color="grey-blue">
+    <ion-label color="light">
+      위치별 검색</ion-label>
+
+    <ion-select (ionChange)="goTo1()" [(ngModel)]="location1">
+      <ion-option value="A">A</ion-option>
+      <ion-option value="B">B</ion-option>
+      <ion-option value="C">C</ion-option>
+      <ion-option value="D">D</ion-option>
+      <ion-option value="E">E</ion-option>
+      <ion-option value="F">F</ion-option>
+    </ion-select>
+    <p></p>
+    <ion-select (ionChange)="goTo2()" [(ngModel)]="location2">
+      <ion-option value="1">1</ion-option>
+      <ion-option value="2">2</ion-option>
+      <ion-option value="3">3</ion-option>
+      <ion-option value="4">4</ion-option>
+      <ion-option value="5">5</ion-option>
+    </ion-select>
+
+  </ion-item>
+  <!--<ion-list text-center>
+  
+    <ion-item *ngFor="let item of itemList" (click)="openDetail(item)">
+      
+      <h2> <strong>{{ item.model }}</strong> </h2>
+      <h3> Location : {{ item.location1 }}-{{item.location2}}</h3>
+      <h3> Quantity : {{ item.quantity }}</h3>
+    </ion-item> 
+  </ion-list>-->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col no-padding col-12 col-md-6 *ngFor="let item of itemList">
+        <ion-card padding class="back">
+          <h2 (click)="openDetail(item)">
+            <font color="white">
+              <b>{{ item.model }}</b>
+            </font>
+          </h2>
+          <h3 (click)="openDetail(item)">
+            <font color="white">
+              Location : {{ item.location1 }}-{{ item.location2 }}
+            </font>
+          </h3>
+          <div text-right>
+            <button color="white" clear ion-button (click)="remove(item)">
+              <ion-icon name="arrow-down"></ion-icon>
+            </button>
+            <input (click)="input(item)" type="number" [(ngModel)]="item.quantity" placeholder="{{item.quantity}}" style="width:3em ">
+            <button color="white" clear ion-button (click)="add(item)">
+              <ion-icon name="arrow-up" icon-only></ion-icon>
+            </button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab right bottom>
+    <button (click)="set()" ion-fab color="grey-blue">
+      <!-- <ion-icon name="done-all"></ion-icon> -->
+      <!-- <ion-icon name="download"></ion-icon> -->
+      SAVE
+    </button>
+  </ion-fab>
+
+    
+
+</ion-content>

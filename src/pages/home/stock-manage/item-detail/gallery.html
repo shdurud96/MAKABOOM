@@ -1,0 +1,11 @@
+<ion-content class="gallery">
+    <ion-slides class="image-slider" loop="false">
+        <ion-slide *ngFor="let img of images">
+            <img src="{{img.image_url}}" class="thumb-img">
+            <button ion-button clear (click)="deleteImage(img)">
+                Delete 
+                <ion-icon name="trash"></ion-icon>
+            </button>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

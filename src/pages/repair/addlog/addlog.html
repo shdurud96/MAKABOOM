@@ -1,0 +1,86 @@
+<style>
+  @media screen and (max-width: 600px) {
+    .desktop {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .mobile {
+      display: none;
+    }
+  }
+</style>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<ion-header>
+
+  <ion-navbar color="grey-blue">
+    <ion-title>Add Process</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+  <div class="container">
+    <div class="form-group">
+      <label class="col-md-2 control-label">
+        <font color="white">Title</font>
+      </label>
+      <div class="col-md-10">
+        <input margin-top margin-bottom class="form-control" type="text" [(ngModel)]="title" placeholder="Enter the title">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-2 control-label">
+        <font color="white">writer</font>
+      </label>
+      <div class="col-md-10">
+        <input margin-top margin-bottom class="form-control" type="text" [(ngModel)]="writer" placeholder="Enter your name.">
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <label class="col-md-2 control-label">
+        <font color="white">Upload Picture</font>
+      </label>
+      <div class="col-md-10">
+        <input class="desktop" type="file" accept="image" (change)="uploadFileDesktop($event)" id="fileInput" />
+        <label class="desktop" for="fileInput" icon-only ion-button clear>
+          <ion-icon color="white" name="add"></ion-icon>
+          <ion-icon color="white" name="images"></ion-icon>
+        </label>
+
+        <button class="mobile" id="fileInput2" ion-button (click)="uploadFileMobile()"></button>
+        <label class="mobile" for="fileInput2" icon-only ion-button clear>
+          <ion-icon color="white" name="add"></ion-icon>
+          <ion-icon color="white" name="images"></ion-icon>
+        </label>
+      </div>
+    </div>
+    <div margin-top *ngIf = "uploadPercent | async as pct">
+        <div *ngIf = "pct < 100; else other">
+        <progress [value]="pct" max="100"></progress>
+        {{pct}}%
+        </div>
+        <ng-template #other>
+          <p><font color="white">Successfully uploaded!</font></p>
+        </ng-template>
+      </div>
+    <div class="form-group">
+      <label class="col-md-2 control-label">
+        <font color="white">Description</font>
+      </label>
+      <div class="col-md-10">
+        <textarea margin-top margin-bottom class="form-control" [(ngModel)]="description" rows="10" placeholder="Enter the content"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10" text-left>
+        <button ion-button type="button" mode="ios" outline (click)="save()" color="white">Save</button>
+      </div>
+    </div>
+  </div>
+</ion-content>

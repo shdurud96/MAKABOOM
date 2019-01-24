@@ -1,0 +1,43 @@
+
+<ion-header >
+  <ion-navbar no-border-bottom color="blue">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+       Timeline
+    </ion-title>
+    <ion-buttons start>
+        <button ion-button icon-only color="light">
+            <ion-icon name="notifications"></ion-icon>
+        </button>
+    </ion-buttons>
+    <ion-buttons right>
+        <button ion-button icon-only>
+            <ion-icon name="md-more"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+
+ <ion-list>
+  <ion-item-group>
+       <ul class="timeline">
+          <li *ngFor="let item of itemList ">
+              <img src="https://firebasestorage.googleapis.com/v0/b/prototype-d68e4.appspot.com/o/default_image.jpg?alt=media&token=6e8d4469-6873-4161-b017-6181ed4d1c7f" alt="" class="timeline-thumb pop-in">
+                <div class="timeline-item">
+                  <h6>{{item.title}}</h6>
+                  <p>{{item.writer}}</p>
+                  <p>{{item.description}}</p>
+                  <p>{{item.timestamp | date: 'fullDate'}}</p>
+               <!--   <img data-src="{{images}}" class="imageTimeline">-->
+                </div>
+              </li>
+          </ul>
+  </ion-item-group>
+</ion-list>
+
+</ion-content>

@@ -1,0 +1,55 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<ion-header>
+
+  <ion-navbar color="grey-blue">
+    <ion-title>Notification</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<!-- <ion-content padding>
+  <ion-item>
+    <ion-input placeholder="제목" [(ngModel)]="title" clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input placeholder="작성자" [(ngModel)]="writer" clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-textarea placeholder="내용을 입력하세요" [(ngModel)]="content"></ion-textarea>
+  </ion-item>
+
+  <button margin-left margin-top ion-button (click)="confirm()" color="grey-blue">확인</button>
+</ion-content>  -->
+
+<ion-content  [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+<div class="container">
+      <div  class="form-group">
+        <label class="col-md-2 control-label"><font color="white">Title</font></label>
+        <div class="col-md-10">
+          <input margin-top margin-bottom class="form-control" type="text" [(ngModel)]="title" placeholder="Enter the title">
+        </div>
+      </div>
+     <div class="form-group">
+        <label class="col-md-2 control-label"><font color="white">Writer</font></label>
+        <div class="col-md-10">
+          <input margin-top margin-bottom class="form-control" type="text" [(ngModel)]="writer" placeholder="Enter your name.">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label"><font color="white">Content</font></label>
+        <div class="col-md-10">
+          <textarea margin-top margin-bottom class="form-control"  [(ngModel)]="content" rows="10" placeholder="Enter the content"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10" text-left>
+          <button ion-button type="button" mode="ios" outline (click)="confirm()" color="white">Confirm</button>
+        </div>
+      </div>
+  </div>
+</ion-content>

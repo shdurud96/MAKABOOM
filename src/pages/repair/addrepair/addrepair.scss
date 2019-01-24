@@ -1,0 +1,17 @@
+page-addrepair {
+    .back{
+        background-color : rgba(255,255,255,0.2);
+    }
+    #fileInput{
+        position: absolute;
+        opacity: 0;
+      }
+      #fileInput2{
+        position: absolute;
+        opacity: 0;
+      }
+
+      progress::-webkit-progress-value{
+          transition : width 0.1s ease;
+      }
+}

@@ -1,0 +1,16 @@
+<ion-content [ngStyle]="{'background-image': 'url(' + 'https://firebasestorage.googleapis.com/v0/b/prototype-d68e4.appspot.com/o/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80.jpg?alt=media&token=9e7f9e83-b6e6-4ea3-abd5-dfb2b8d7e5a4' +')'}">
+
+    <div class="login_btn">
+        <button ion-button mode="ios" block margin-top margin-bottom (click)="googleLogin()" color="red" icon-left>
+            <ion-icon name="logo-google"></ion-icon>google login</button>
+        <button ion-button mode="ios" block margin-top margin-top margin-bottom (click)="loginWithEmail()" color="gray" icon-left>
+            <ion-icon name="ios-mail"></ion-icon>e-mail login</button>
+    </div>
+    
+    <div class="btn">
+    <button ion-button color="grey-blue" (click)="dismiss()">
+        <span ion-text>Cancel</span>
+    </button>
+    </div>
+    
+</ion-content>

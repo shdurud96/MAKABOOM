@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="grey-blue">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Stock Manage</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="grey-blue">
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col no-padding col-12 col-md-6 *ngFor="let item of itemList">
+        <ion-card (click)="openDetail(item)" padding tappable class="card">
+          <h2>
+            <font color="white">
+              <b>{{ item.model }}</b>
+            </font>
+          </h2>
+          <h3>
+            <font color="white">
+              Location : {{ item.location1 }}-{{ item.location2 }}</font>
+          </h3>
+          <div text-right>
+            <button color="white" clear ion-button (click)="remove(item)">
+              <ion-icon name="arrow-down"></ion-icon>
+            </button>
+
+            <input (click)="input(item)" type="number" [(ngModel)]="item.quantity" placeholder="{{item.quantity}}" style="width:3em ">
+
+            <button color="white" clear ion-button (click)="add(item)">
+              <ion-icon name="arrow-up" icon-only></ion-icon>
+            </button>
+          </div>
+        </ion-card>
+
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-fab right bottom>
+    <button (click)="manage()" ion-fab color="grey-blue">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

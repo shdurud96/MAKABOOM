@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar color="grey-blue">
+    <ion-title>Detail Information</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+
+  <div class="title">
+    <h2 margin-left>
+      <font color="white">Project Name : {{ProjectName}}</font>
+    </h2>
+    <p margin-left>
+      <font color="white">Develop Environment : {{DevEn}}</font>
+    </p>
+    <p margin-left>
+        <font color="white">Partner : {{Partner}}</font>
+      </p>
+    
+  </div>
+
+  <ion-card [ngStyle]="{'background-image': 'url(' + cardImage +')'}">
+
+    <ion-card-content no-padding>
+
+      <ion-item class="item1">
+        <ion-icon name="person" item-left color="white"></ion-icon>
+        <font color="white">Date : {{Date}}</font>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card-content>
+
+    <ion-list>
+      <ion-item-group>
+        <ul class="timeline">
+          <li *ngFor="let item of itemList ">
+            <img src="https://firebasestorage.googleapis.com/v0/b/prototype-d68e4.appspot.com/o/default_image.jpg?alt=media&token=6e8d4469-6873-4161-b017-6181ed4d1c7f"
+              alt="" class="timeline-thumb pop-in">
+            <div class="timeline-item">
+              <h6>
+                <font color="white">{{item.title}}</font>
+              </h6>
+              <p>
+                <font color="white">{{item.writer}}</font>
+              </p>
+              <p>
+                <font color="white">{{item.description}}</font>
+              </p>
+              <p>
+                <font color="white">{{item.timestamp}}</font>
+              </p>
+              <img *ngIf="item.image" [src]="item.image" height="80">
+            </div>
+          </li>
+          <ion-fab margin-bottom right>
+            <button color="grey-blue" (click)="addlog()" ion-fab>
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </ion-fab>
+        </ul>
+
+      </ion-item-group>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading more data...">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </ion-card-content>
+  <!-- <ion-fab right bottom>
+    <button color="grey-blue" (click)="addlog()" ion-fab>
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab> -->
+</ion-content>

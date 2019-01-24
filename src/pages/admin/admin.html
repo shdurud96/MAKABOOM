@@ -1,0 +1,156 @@
+<style>
+  @media screen and (max-width: 600px) {
+    .desktop {
+      display: none;
+    }
+    .mobile {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .desktop {
+      display: block;
+    }
+    .mobile {
+      display: none;
+    }
+  }
+</style>
+
+
+
+<ion-header>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://use.fontawesome.com/1e803d693b.js"></script>
+  <ion-navbar color="grey-blue">
+    <ion-title>Admin</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+
+  <div class="desktop">
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-default user_panel">
+          <div class="panel-heading">
+            <h3 class="panel-title">User List</h3>
+            <ion-searchbar padding (ionInput)="getItems($event)"></ion-searchbar>
+          </div>
+
+          <div class="panel-body">
+
+            <div class="table-container" *ngFor="let user of users" (click)="profile(user)">
+              <table class="table-users table" border="0">
+                <tbody>
+                  <tr>
+                    <td width="10" text-align="center">
+                      <i class="fa fa-2x fa-user fw"></i>
+                    </td>
+                    <td width="100">
+                      <img class="pull-left img-circle nav-user-photo" src="{{user.thumbnail}}" />
+                    </td>
+                    <td>
+                      {{user.name}}
+                      <br>
+                      <i class="fa fa-envelope"></i>
+                    </td>
+                    <td width="200px" align="center">
+                      {{user.email}}
+                    </td>
+                    <td width="200px" align="center">
+                      {{user.phone}}
+                    </td>
+                    <td width="200px" align="center">
+                      <ion-item>
+                        <ion-select style="min-width:150px" *ngIf="user.role" (ionChange)="updateRole(user, user.role)" [(ngModel)]="user.role">
+                          <ion-option value="admin">admin</ion-option>
+                          <ion-option value="editor">editor</ion-option>
+                          <ion-option value="subscriber">subscriber</ion-option>
+                        </ion-select>
+                      </ion-item>
+                    </td>
+                    <td align="center">
+                      <button ion-button (click)="delete(user)">삭제</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading more data...">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll> -->
+  </div>
+
+  <div class="mobile" margin-top>
+    <!-- <div class="container"> -->
+
+    <!-- 
+      <div class="row">
+        <div class="panel panel-default user_panel">
+          <div class="panel-heading">
+            <h3 class="panel-title">User List</h3>
+            <ion-searchbar padding (ionInput)="getItems($event)"></ion-searchbar>
+          </div>
+          <div class="panel-body">
+            <div class="table-container" *ngFor="let user of users" (click)="profile(user)">
+              <table class="table-users table" border="0">
+                <tbody>
+                  <tr>
+                    <td>
+                      {{user.name}}
+                      <br>
+                    </td>
+                    <td *ngIf="user.employee_number" align="center">
+                      {{user.employee_number}}
+                    </td>
+                    <td width="200px" align="center">
+                      <ion-item>
+                        <ion-select style="min-width:150px" *ngIf="user.role" (ionChange)="updateRole(user, user.role)" [(ngModel)]="user.role">
+                          <ion-option value="admin">admin</ion-option>
+                          <ion-option value="editor">editor</ion-option>
+                          <ion-option value="subscriber">subscriber</ion-option>
+                        </ion-select>
+                      </ion-item>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+<ion-searchbar margin-bottom (ionInput)="getItems($event)"></ion-searchbar>
+      <ion-list *ngFor="let user of users">
+          <ion-item class="back" tappable (click)="profile(user)">
+              <ion-thumbnail item-left>
+                  <img [src]="user.thumbnail">
+              </ion-thumbnail>
+              <h2><font color="white" size="3px">{{user.name}}</font></h2>
+              <p><font color="white">{{user.employee_number}}</font></p>
+          </ion-item>
+          <ion-item class="back">
+              <ion-select (ionChange)="updateRole(user, user.role)" [(ngModel)]="user.role">
+                <ion-option value="admin">admin</ion-option>
+                <ion-option value="editor">editor</ion-option>
+                <ion-option value="subscriber">subscriber</ion-option>
+              </ion-select>
+            </ion-item>
+            <button color="white" ion-button outline (click)="delete(user)">삭제</button>
+      </ion-list>
+
+    <!-- <ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading more data...">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll> -->
+  </div>
+</ion-content>

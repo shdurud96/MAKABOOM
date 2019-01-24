@@ -1,0 +1,85 @@
+<style>
+  @media screen and (max-width: 600px) {
+   .desktop {
+     display: none;
+   }
+ }
+
+ @media screen and (min-width: 600px) {
+   .mobile {
+     display: none;
+   }
+ }
+ </style>
+
+<ion-header>
+  <ion-navbar color="grey-blue">
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+  <ion-list>
+    <ion-item class="">
+      <ion-label floating>Project Name</ion-label>
+      <ion-input type="text" [(ngModel)]="ProjectName"></ion-input>
+    </ion-item>
+    <ion-item class="">
+      <ion-label floating>Develop Environment</ion-label>
+      <ion-input type="text" [(ngModel)]="DevEn"></ion-input>
+    </ion-item>
+    <ion-item class="">
+        <ion-label floating>Partner</ion-label>
+        <ion-input type="text" [(ngModel)]="Partner"></ion-input>
+      </ion-item>
+    <ion-item class="">
+        <ion-label *ngIf="!Date" floating>Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="Date"></ion-datetime>
+    </ion-item>
+
+    <!--
+    <ion-item class="back">
+      <ion-label floating>Starting Date</ion-label>
+      <ion-input type="text" [(ngModel)]="repairman"></ion-input>
+    </ion-item>
+
+      <ion-item no-lines class="option">
+                    <ion-label *ngIf="!startDate" color="white">시작일:</ion-label>
+                    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="startDate"></ion-datetime>
+                </ion-item>
+    -->
+    <ion-item class="">
+      <ion-label floating>thumbnail</ion-label>
+      <ion-input type="text" [(ngModel)]="thumbnail"></ion-input>
+    </ion-item>
+
+<ion-item class="">
+  <div margin-top *ngIf = "uploadPercent | async as pct">
+    <div *ngIf = "pct < 100; else other">
+    <progress [value]="pct" max="100"></progress>
+    {{pct}}%
+    </div>
+    <ng-template #other>
+      <p><font color="white">Successfully uploaded!</font></p>
+    </ng-template>
+  </div>
+  
+  <input class="desktop" type="file" accept="image" (change)="uploadFileDesktop($event)" id="fileInput"/>
+  <label class="desktop" for="fileInput" icon-only ion-button clear>
+    <ion-icon color="grey" name="add"></ion-icon>
+    <ion-icon color="grey" name="images"></ion-icon>
+  </label>
+
+  <button class="mobile" id="fileInput2" ion-button (click)="uploadFileMobile()"></button>
+  <label class="mobile" for="fileInput2" icon-only ion-button clear>
+    <ion-icon color="grey" name="add"></ion-icon>
+    <ion-icon color="grey" name="images"></ion-icon>
+  </label>
+</ion-item>
+</ion-list>
+
+  <button color="grey-blue"  ion-button (click)="update()">Confirm</button>
+
+</ion-content>

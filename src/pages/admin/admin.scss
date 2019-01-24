@@ -1,0 +1,28 @@
+page-admin {
+    i {  vertical-align: middle; }
+    .table-users tbody tr:hover {
+        cursor: pointer;
+        background-color: #eee;
+    }
+    .nav-user-photo {
+         vertical-align: middle;
+         height: 50px
+         
+         
+    }
+    .user_panel {
+        width: 100%;
+    }
+
+    
+  .round {
+    border-radius: 50%;
+  }
+  .user-avatar {
+    max-width: 125px;height: 125px;
+    padding: .5em;
+  }
+  .back{
+    background-color : rgba(255,255,255,0.4);
+}
+}

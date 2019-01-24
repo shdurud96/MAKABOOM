@@ -1,0 +1,28 @@
+page-nfc {
+    .bigger {
+        font-size: 64px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tagContent {
+        font-size: 12px;
+    }
+
+    .info-name {
+        font-weight: bold
+    }
+
+    ul {
+        //list-style: none;
+        padding-left: 0;
+        margin-left : 10px;
+
+        li {
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+}

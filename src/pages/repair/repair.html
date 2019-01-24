@@ -1,0 +1,154 @@
+<style>
+    @media screen and (max-width: 600px) {
+        .slide {
+            display: none;
+        }
+        .card {
+            max-height: 150px;
+        }
+        .card-subtitle {
+            margin-top: 20px;
+        }
+        .desktop {
+            display: none;
+        }
+    }
+</style>
+
+
+<ion-header>
+
+    <!--*********** Toolbar with segment ***********-->
+    <ion-toolbar style="margin-top:45px" no-border-top color="grey-blue">
+        <ion-segment [(ngModel)]="viewType" color="light">
+            <ion-segment-button value="Menu">
+                Menu
+            </ion-segment-button>
+            <ion-segment-button value="Notice">
+                Notice
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content no-padding [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+
+
+    <!--*********** Menu View  ***********-->
+    <div *ngIf="viewType==='Menu'">
+
+        <ion-slides id="slide" class="slide" autoplay="2000" loop="true" speed="2000">
+            <ion-slide>
+                <div class="card-background-page">
+                    <img class="slide_img" src="https://firebasestorage.googleapis.com/v0/b/prototype-d68e4.appspot.com/o/tools.png?alt=media&token=cc63b91d-e391-44d8-a273-688d2175b64d">
+                    <h2 class="card-title">Palm Cloud - 정비관리</h2>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="card-background-page">
+                    <img class="slide_img" src="https://firebasestorage.googleapis.com/v0/b/prototype-d68e4.appspot.com/o/business-2846221_1920%20(2).jpg?alt=media&token=edb6b83d-c8fd-425d-a377-300f31de3297">
+                    <h2 class="card-title">Palm Cloud - 재고관리</h2>
+                    <div class="card-subtitle">
+                        <button color="white" ion-button outline (click)="openHomePage()">
+                            CLICK!
+                        </button>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slides>
+
+        <div class="card-background-page">
+            <ion-row>
+                <ion-col col-12 col-md-6>
+                    <ion-card class="card" (click)="openLog()">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/prototype-d68e4.appspot.com/o/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%802_%ED%88%AC%EB%AA%85.png?alt=media&token=b4bb27d8-9ce6-44b5-b979-a5d24c2401b2"
+                            height="350" />
+                        <div class="card-title">정비 이력</div>
+                        <div class="card-subtitle">Checkout Repair History</div>
+                    </ion-card>
+                </ion-col>
+
+                <ion-col col-12 col-md-6>
+                    <ion-card class="card" (click)="openOnMaintenance()">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/prototype-d68e4.appspot.com/o/spanner-3013129_1920.png?alt=media&token=d684a107-0e58-4d83-892d-712c68c2cfad"
+                            height="350" />
+                        <div class="card-title">내가 관리한 아이템</div>
+                        <div class="card-subtitle">Record of items i manage</div>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </div>
+
+        <!-- <ion-footer class="desktop">
+            <ion-toolbar color="dark">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-3>
+                            <ion-title margin-top>Palm CLOUD</ion-title>
+                        </ion-col>
+                        <ion-col col-3></ion-col>
+                        <ion-col col-3></ion-col>
+                        <ion-col col-3>
+                            <ion-title style="text-align:right">
+                                <font size="3px">ZadPARk@palmCLOUD.co.kr</font>
+                            </ion-title>
+                            <ion-title style="text-align:right">
+                                <font size="2px">Powered by Palm CLOUD</font>
+                            </ion-title>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-toolbar>
+        </ion-footer> -->
+
+    </div>
+
+    <!--*********** Promotion View  ***********-->
+    <div *ngIf="viewType==='Notice'">
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12 col-md-6 *ngFor="let item of items">
+                    <div class="card" margin-top padding tappable (click)="openNoticeDetailPage(item)">
+                        <h2 style="color : white">
+                            <strong>{{item.title}}</strong>
+                        </h2>
+                        <p style="color : white">{{item.writer}}</p>
+                        <p style="color : white">{{item.timestamp | date}}</p>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+
+        <!--<ion-list class="wave">
+            <ion-item tappable (click)="openNoticeDetailPage(item)" *ngFor="let item of items">
+                <h2>{{item.title}}</h2>
+                <p>{{item.writer}}, {{item.timestamp | date}}</p>
+            </ion-item>
+        </ion-list>-->
+
+        <ion-fab right bottom>
+            <button color="grey-blue" (click)="manage()" ion-fab>
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-fab>
+    </div>
+
+</ion-content>
+<!-- <ion-grid >
+          <ion-row wrap>
+            <ion-col col-6  tappable  *ngFor="let item of items" (click)="goToDetail(item.$key)" color="gray">
+              
+              <ion-card class="card-grid wobble" >
+                
+                <div class="card-grid-bg" [ngStyle]="{'background-image': 'url(' + item.imgSmall+ ')'}">
+                  <div class="bookmarkRibbon"></div>
+                    <h2 class="card-grid-title"> {{item.name}}</h2>                                
+                </div>
+                
+              </ion-card>
+            </ion-col>
+          </ion-row>
+      </ion-grid> -->

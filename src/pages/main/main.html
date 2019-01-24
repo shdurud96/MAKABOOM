@@ -1,0 +1,89 @@
+<!-- <ion-header no-border>
+    <ion-toolbar color="light">
+        <ion-title>Toolbar</ion-title>
+    </ion-toolbar>
+ <ion-navbar transparent>
+<ion-header no-border>
+  <ion-navbar transparent>
+    <button *ngIf="login" ion-button menuToggle>
+      <ion-icon name="menu" color="light"></ion-icon>
+    </button>
+  </ion-navbar> -->
+<!-- </ion-header> -->
+
+<style>
+  @media screen and (max-width: 600px) {
+    .desktop {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .mobile {
+      display: none;
+    }
+  }
+</style>
+
+<ion-content [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+  <div class="login-container">
+    <div class='text' padding margin-top margin-bottom>
+      <p style="font-family: 'Jeju Gothic';" class="title">MAKABOOM</p>
+      <p style="font-family: 'Jeju Gothic';" class="subtitle">imagine, build, code</p>
+    </div>
+    <!-- <div *ngIf="!login; else showLogin" margin-top >
+        <button ion-button mode="ios" block margin-top  margin-bottom   (click)="googleLogin()" color="red"   icon-left> <ion-icon name="logo-google"></ion-icon>google login</button>  
+        <button ion-button mode="ios" block margin-top  margin-top margin-bottom   (click)="loginWithEmail()" color="gray"  icon-left> <ion-icon name="ios-mail"></ion-icon>e-mail login</button>  
+    </div> -->
+    <ng-template #showLogin>
+      <button ion-button mode="ios" block margin-top margin-bottom color="grey" (click)="logout()">Logout</button>
+    </ng-template>
+
+
+    <button margin-top color="grey-blue" ion-button (click)="openLoginPage()">Get Started!</button>
+  </div>
+
+</ion-content>
+
+<ion-footer class="desktop">
+    <ion-toolbar color="dark">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+            <ion-title margin-top>MAKABOOM</ion-title>
+          </ion-col>
+          <ion-col col-3></ion-col>
+          <ion-col col-3></ion-col> 
+          <ion-col col-3>
+            <ion-title style="text-align:right"><font size="3px">https://makaboom.school/</font></ion-title>
+            <ion-title style="text-align:right"><font size="2px">Imagine, Build, Code</font></ion-title>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
+  
+  <ion-footer class="mobile">
+    <ion-toolbar color="dark">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <ion-title style="text-align:left">
+              <font color="white" size="2px">MAKABOOM</font>
+            </ion-title>
+          </ion-col>
+          <ion-col col-8>
+            <div>
+              <ion-title style="text-align:right">
+                <font color="white" size="1px">Imagine, Build, Code</font>
+              </ion-title>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
+
+<!-- <ion-footer>
+  <button class="bottom" ion-button  type="button"  clear full color="light" (click)="createAccount()">Create new account</button>
+</ion-footer> -->

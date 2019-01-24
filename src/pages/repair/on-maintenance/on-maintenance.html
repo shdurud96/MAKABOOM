@@ -1,0 +1,135 @@
+<style>
+  @media screen and (max-width: 800px) {
+    .web {
+      display: none;
+    }
+
+    .mobile {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    .web {
+      display: block;
+    }
+
+    .mobile {
+      display: none;
+    }
+  }
+</style>
+
+
+<ion-header>
+  <ion-navbar color="grey-blue">
+    <ion-title>Done Project</ion-title>
+  </ion-navbar>
+  <div class="mobile">
+    <ion-toolbar no-border-top color="grey-blue">
+      <ion-segment [(ngModel)]="viewType" color="light">
+        <ion-segment-button value="Item">
+          Projects
+        </ion-segment-button>
+        <ion-segment-button value="Timeline">
+          Time Line
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </div>
+</ion-header>
+
+
+<ion-content padding [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+
+  <!--
+  <div class="web">
+
+    <div id="Item">
+      <div class="container">
+        <ion-row>
+          <ion-col col-12 col-md-4 col-xl-3 *ngFor="let item of itemList">
+            <ion-card class="card" (click)="openDetail(item)">
+              <img src="{{item.thumbnail}}" height="200">
+              <ion-card-content>
+                <ion-card-title color="white">
+                  {{item.model}}
+                </ion-card-title>
+                <h5>
+                  <font color="white">설비번호: {{item.serialNum}}</font>
+                </h5>
+                <h6>
+                  <font color="white">정비담당: {{item.repairman}}</font>
+                </h6>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+
+    <div id="Repair">
+      <div class="container">
+        <div style="color:white">
+          <h3>정비 이력</h3>
+          <ul>
+            <li *ngFor="let repairlog of repairlogList">
+              <span></span>
+              <div>
+                <div class="title">{{repairlog.title}}</div>
+                <div class="info">{{repairlog.model}}</div>
+                <div class="info">{{repairlog.description}}</div>
+              </div>
+              <span class="number">
+                <span>{{repairlog.timestamp | date}}</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>-->
+
+
+
+  <div class="mobile">
+    <div *ngIf="viewType==='Timeline'">
+
+      <div class="container">
+        <ul>
+          <li *ngFor="let repairlog of repairlogList">
+            <span></span>
+            <div>
+              <div class="title">{{repairlog.title}}</div>
+              <div class="info">{{repairlog.description}}</div>
+            </div>
+            <span class="number">
+              <span>{{repairlog.timestamp | date}}</span>
+            </span>
+          </li>
+        </ul> 
+      </div>
+    </div>
+
+    <div *ngIf="viewType==='Item'">
+      <div class="container">
+        <ion-row>
+                <ion-col col-12 col-md-4 col-xl-3  *ngFor="let item of itemList" >
+                      <ion-card class="card" (click)="openDetail(item)">
+                        <img src="{{item.thumbnail}}" height="200">
+                        <ion-card-content>
+                          <ion-card-title color="white">
+                            {{item.model}}
+                            </ion-card-title>
+                           <h5><font color="white">설비번호: {{item.serialNum}}</font></h5>
+                           <h6><font color="white">정비담당: {{item.repairman}}</font></h6>
+                        </ion-card-content>
+                      </ion-card>
+                </ion-col>
+              </ion-row>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

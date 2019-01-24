@@ -1,0 +1,117 @@
+<style>
+  @media screen and (max-width: 600px) {
+    .desktop {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .mobile {
+      display: none;
+    }
+  }
+</style>
+
+<ion-header>
+  <ion-navbar color="grey-blue">
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+
+  <div class="title">
+    <h2 margin-left>
+      <font color="white">Model : {{model}}</font>
+    </h2>
+  </div>
+
+  <ion-card [ngStyle]="{'background-image': 'url(' + cardImage +')'}">
+    <div class="info">
+      <ion-list block no-lines>
+
+        <ion-item class="item1">
+          <ion-icon name="stats" item-left color="darkGray"></ion-icon>
+          <ion-label color="white">Quantity :</ion-label>
+          <ion-input type="number" [(ngModel)]="quantity">{{quantity}}</ion-input>
+        </ion-item>
+
+        <ion-item class="item2">
+          <ion-icon name="pin" item-left color="darkGray"></ion-icon>
+          <ion-label color="white" strong>Location1 : </ion-label>
+          <ion-select [(ngModel)]="location1">
+            <ion-option value="A">A</ion-option>
+            <ion-option value="B">B</ion-option>
+            <ion-option value="C">C</ion-option>
+            <ion-option value="D">D</ion-option>
+            <ion-option value="E">E</ion-option>
+            <ion-option value="F">F</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item class="item3">
+          <ion-icon name="pin" item-left color="light"></ion-icon>
+          <ion-label color="white" strong>Location2 : </ion-label>
+          <ion-select [(ngModel)]="location2">
+            <ion-option value="1">1</ion-option>
+            <ion-option value="2">2</ion-option>
+            <ion-option value="3">3</ion-option>
+            <ion-option value="4">4</ion-option>
+            <ion-option value="5">5</ion-option>
+          </ion-select>
+        </ion-item>
+
+
+      </ion-list>
+    </div>
+    <div text-right>
+      <button ion-button color="vague-blue" clear (click)="confirm($event, item)">Confirm</button>
+      <button ion-button color="vague-blue" clear (click)="delete()">Delete</button>
+    </div>
+  </ion-card>
+
+
+
+  <ion-card [ngStyle]="{'background-image': 'url(' + cardImage +')'}">
+    <ion-card-header color="vague-blue">
+      Photos
+    </ion-card-header>
+    <ion-grid>
+      <ion-row wrap color="dark">
+        <ion-col (click)="openFullImage()" tappable col-4 col-md-2 *ngFor="let image of imgGallery, let i = index">
+          <img class="expanded-image" [src]="image.image_url" />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <input class="desktop" type="file" accept="image" (change)="uploadFileDesktop($event)" id="fileInput" />
+    <label class="desktop" for="fileInput" icon-only ion-button clear>
+      <ion-icon color="white" name="add"></ion-icon>
+      <ion-icon color="white" name="images"></ion-icon>
+    </label>
+
+    <button class="mobile" id="fileInput2" ion-button (click)="uploadFileMobile()"></button>
+    <label class="mobile" for="fileInput2" icon-only ion-button clear>
+      <ion-icon color="white" name="add"></ion-icon>
+      <ion-icon color="white" name="images"></ion-icon>
+    </label>
+
+    <div margin-top *ngIf = "uploadPercent">
+        <div *ngIf = "percent < 100">
+        <progress [value]="percent" max="100"></progress>
+        {{percent}}%
+        </div>
+      </div>
+  </ion-card>
+
+  <!-- <a [href]="downloadURL | async">{{ downloadURL | async }}</a> -->
+
+  <!-- <ion-card [ngStyle]="{'background-image': 'url(' + cardImage +')'}">
+    <ion-card-header padding color="vague-blue">
+      <strong>Description</strong>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>detail information of corresponding item...</p>
+    </ion-card-content>
+  </ion-card> -->
+</ion-content>
