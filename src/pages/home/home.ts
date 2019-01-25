@@ -47,6 +47,10 @@ export class HomePage {
     this.navCtrl.push('OnMaintenancePage');
   }
 
+  openAll(){
+    this.navCtrl.push('AllPage')
+  }
+
   openManage() {
     this.navCtrl.push('MaintenanceLogPage')
   }
