@@ -101,8 +101,8 @@
           <li *ngFor="let repairlog of repairlogList">
             <span></span>
             <div>
-              <div class="title">{{repairlog.title}}</div>
-              <div class="info">{{repairlog.description}}</div>
+              <div class="title">{{repairlog.ProjectName}}</div>
+              <div class="info">{{repairlog.Partner}}</div>
             </div>
             <span class="number">
               <span>{{repairlog.timestamp | date}}</span>
@@ -115,19 +115,37 @@
     <div *ngIf="viewType==='Item'">
       <div class="container">
         <ion-row>
-                <ion-col col-12 col-md-4 col-xl-3  *ngFor="let item of itemList" >
-                      <ion-card class="card" (click)="openDetail(item)">
-                        <img src="{{item.thumbnail}}" height="200">
-                        <ion-card-content>
-                          <ion-card-title color="white">
-                            {{item.model}}
-                            </ion-card-title>
-                           <h5><font color="white">설비번호: {{item.serialNum}}</font></h5>
-                           <h6><font color="white">정비담당: {{item.repairman}}</font></h6>
-                        </ion-card-content>
-                      </ion-card>
-                </ion-col>
-              </ion-row>
+          <ion-col col-12 col-md-4 col-xl-3 *ngFor="let item of repairlogList">
+            <ion-card class="card" (click)="openDetail(item)">
+              <img [src]="item.thumbnail" height="200">
+              <ion-card-content>
+      
+                <ion-card-title color="white">
+                  {{item.ProjectName}}
+      
+                </ion-card-title>
+                <button style="float:right" ion-button icon-start clear small (click)="show(item)" color="white">
+                  <ion-icon name="trophy"></ion-icon>
+                  <div>Show-Off</div>
+                </button>
+                
+                <h5>
+                  <font color="white">Date : {{item.Date}}</font>
+                </h5>
+                <h6>
+                  <font color="white">Dev Env : {{item.DevEn}}</font>
+                </h6>
+                
+                <!--
+                <button style="float:right" ion-button icon-start clear small (click)="complete(item)" color="white">
+                  <ion-icon name="checkmark" color="blue"></ion-icon>
+                  <div>COMPLETE</div>
+                </button>
+              -->
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
       </div>
     </div>
   </div>

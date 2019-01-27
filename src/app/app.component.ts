@@ -76,6 +76,7 @@ export class MyApp {
     this.pages = [
       { title : 'OnGoing Project', component: 'MaintenanceLogPage'},
       { title : 'Done Project', component: 'OnMaintenancePage'}, 
+      { title : 'Inspiring Others', component:'AllPage'},
      // { title : 'Notice', component: 'WriteStockNoticePage'}, 
      // { title: '재고관리', component: 'HomePage' },
       //{ title: '정비관리', component: "RepairPage" },

@@ -134,6 +134,13 @@ export class MaintenanceLogPage {
   }
   real_completed(item){
     this.afs.collection('User').doc(this.afAuth.auth.currentUser.uid).collection('DoneProject').doc(item.ProjectName).set({
+      ProjectName : item.ProjectName, 
+      DevEn : item.DevelopEnvironment, 
+      Partner : item.Partner, 
+      id : item.id, 
+      Date : item.Date, 
+      isToggled : item.isToggled, 
+      thumbnail : item.thumbnail
     })
     
   }
