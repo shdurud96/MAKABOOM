@@ -14,6 +14,7 @@ class RepairItem {
   Date: Date;
   id : string;
   thumbnail: string;
+  Owner : string;
 }
 
 interface RepairItemLog {
@@ -23,6 +24,7 @@ interface RepairItemLog {
   Date: Date;
   id : string;
   thumbnail: string;
+  Owner : string;
 }
 
 @IonicPage()
@@ -60,10 +62,11 @@ export class RepairitemdetailPage {
   Partner: string;
   Date: Date;
   thumbnail: string;
+  Owner : string;
 
   close: boolean;
 
-  backgroundImage = "https://firebasestorage.googleapis.com/v0/b/prototype-d68e4.appspot.com/o/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%802_%ED%88%AC%EB%AA%85.png?alt=media&token=b4bb27d8-9ce6-44b5-b979-a5d24c2401b2";
+  backgroundImage = "https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/detail2.JPG?alt=media&token=bd5f5628-0fc3-40af-8826-b76fe5c08b2e";
 
   item_length: number;
   lastVisible: any;
@@ -83,6 +86,7 @@ export class RepairitemdetailPage {
       this.id=this.navParams.get('id')
       this.isToggled=this.navParams.get('isToggled')
       this.thumbnail=this.navParams.get('thumbnail')
+      this.Owner=this.navParams.get('Owner')
 
 
       /*

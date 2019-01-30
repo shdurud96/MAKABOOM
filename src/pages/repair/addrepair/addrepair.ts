@@ -15,6 +15,7 @@ class RepairItem{
   Date: Date;
   id : string;
   thumbnail: string;
+  Owner : string;
 }
 
 
@@ -29,6 +30,7 @@ export class AddrepairPage {
   ProjectName
   DevEn
   Partner
+  Owner
   Date
   thumbnail;
 
@@ -113,6 +115,7 @@ export class AddrepairPage {
     this.RepairItem.Partner = this.Partner;
     this.RepairItem.ProjectName = this.ProjectName;
     this.RepairItem.thumbnail = this.thumbnail;
+    this.RepairItem.Owner=this.Owner
     
     console.log(this.Date, this.RepairItem.id)
     this.fireService.ProjectAdd(this.RepairItem)

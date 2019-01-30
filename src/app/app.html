@@ -44,8 +44,8 @@
       <button class="topNav" ion-button clear color="white" (click)="openMain()">
         <ion-icon name="home"></ion-icon>
       </button>
-      <button class="topNav" style="font-family: 'Jeju Gothic';" ion-button clear color="white" (click)="openStock()">재고관리</button>
-      <button class="topNav" style="font-family: 'Jeju Gothic';" ion-button clear color="white" (click)="openRepair()">정비관리</button>
+      <button class="topNav" style="font-family: 'Jeju Gothic';" ion-button clear color="white" (click)="openStock()">HOME</button>
+      <!--<button class="topNav" style="font-family: 'Jeju Gothic';" ion-button clear color="white" (click)="openRepair()">정비관리</button>-->
       <button class="topNav" style="font-family: 'Jeju Gothic';" ion-button clear color="white" (click)="openProfile()">My Profile</button>
       <button *ngIf="!(auth.user | async);" style="font-family: 'Jeju Gothic';" class="topNav" ion-button clear color="white" (click)="DologIn()">로그인</button>
       <button *ngIf="auth.user | async;" style="font-family: 'Jeju Gothic';" class="topNav" ion-button clear color="white" (click)="logout()">로그아웃</button>

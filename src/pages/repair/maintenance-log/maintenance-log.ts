@@ -13,6 +13,7 @@ interface RepairItem {
   Date: Date;
   id : string;
   thumbnail: string;
+  Owner : string;
 }
 
 @IonicPage()
@@ -135,12 +136,13 @@ export class MaintenanceLogPage {
   real_completed(item){
     this.afs.collection('User').doc(this.afAuth.auth.currentUser.uid).collection('DoneProject').doc(item.ProjectName).set({
       ProjectName : item.ProjectName, 
-      DevEn : item.DevelopEnvironment, 
+      DevEn : item.DevEn, 
       Partner : item.Partner, 
       id : item.id, 
       Date : item.Date, 
       isToggled : item.isToggled, 
-      thumbnail : item.thumbnail
+      thumbnail : item.thumbnail, 
+      Owner : item.Owner
     })
     
   }
@@ -201,20 +203,13 @@ export class MaintenanceLogPage {
   openDetail(item) {
     this.navCtrl.push('RepairitemdetailPage', {
       ProjectName : item.ProjectName, 
-      DevEn : item.DevelopEnvironment, 
+      DevEn : item.DevEn, 
       Partner : item.Partner, 
       id : item.id, 
       Date : item.Date, 
       isToggled : item.isToggled, 
-      thumbnail : item.thumbnail
-
-/*
-      model: item.model,
-      serialNum: item.serialNum,
-      repairman: item.repairman,
-      isToggled: item.isToggled,
-      startDate: item.startDate,
-      finDate: item.finDate*/
+      thumbnail : item.thumbnail,
+      Owner : item.Owner
     })
   }
 }

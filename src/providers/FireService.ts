@@ -103,11 +103,12 @@ export class FireService {
     // this.afs.collection('Projects').doc(RepairItem.id).set({
       id: RepairItem.id,
       Date: RepairItem.Date, 
-      DevelopEnvironment: RepairItem.DevEn, 
+      DevEn: RepairItem.DevEn, 
       Partner : RepairItem.Partner, 
       ProjectName : RepairItem.ProjectName, 
       thumbnail:RepairItem.thumbnail,
-      isToggled: false
+      isToggled: false,
+      Owner : RepairItem.Owner
     }).then(() => {
 
       let toast = this.toast.create({

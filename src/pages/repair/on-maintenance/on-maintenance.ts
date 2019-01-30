@@ -8,19 +8,22 @@ import { AlertController } from 'ionic-angular/components/alert/alert-controller
 
 
 interface userRepairLog {
-  // model: string,
-  // serialNum: string,
-  // title: string,
-  // writer: string,
-  // description: string;
-  // timestamp: Date;
-  // id;
   ProjectName : string;
   DevEn: string;
   Partner: string;
   Date: Date;
   id : string;
   thumbnail: string;
+
+}
+
+interface User {
+  email : string;
+  name : string;
+  phone_num : number;
+  student_num : number;
+  thumbnail : string;
+  uid: string;
 
 }
 
@@ -46,18 +49,19 @@ export class OnMaintenancePage {
 
   private usersRepairCollection: AngularFirestoreCollection<userRepairLog>;
   private itemsCollection: AngularFirestoreCollection<RepairItem>;
-  
+  private UserCol : AngularFirestoreCollection<User>;
   private param: AngularFirestoreCollection<userRepairLog>;
   repairlogList: any = [];
   repairlogArray: any = [];
   repairlogs: any = [];
-
+  users : any=[];
   itemList: any = [];
   itemArray: any = [];
   loadedItemList: any = [];
   items: any = [];
   projectArray : any=[]
- 
+  userList : any=[];
+  user_name : string = "";
   idList = new Set();
   uniqueIdList: any = []
 
@@ -65,58 +69,35 @@ export class OnMaintenancePage {
   backgroundImage = "https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/ongoingback3.JPG?alt=media&token=144c8363-e39a-480c-a18e-e3cde442c5c8";
 
   constructor( public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, public afs: AngularFirestore, public afAuth:AngularFireAuth, public global : GlobalVars) {
-
-
+    console.log("real show")
+//    console.log(this.afs.collection('User').doc(this.afAuth.auth.currentUser.uid).valueChanges());
     this.id = this.afAuth.auth.currentUser.uid
+   // console.log(this.id)
+    // this.UserCol=afs.collection<User>('User')
+    // this.users=this.UserCol.valueChanges()
+    // .subscribe((docs)=>{
+    //   this.userList=docs;
+    //   console.log("dd")
+    // })
+
+    // this.userList.forEach(function (value){
+    //   console.log(value.uid)
+    //  })
 
     this.usersRepairCollection=afs.collection('User').doc(this.afAuth.auth.currentUser.uid).collection<userRepairLog>('DoneProject')
-    //this.usersRepairCollection = afs.collection('users').doc(this.id).collection<userRepairLog>('Repair_Log')
     this.repairlogs = this.usersRepairCollection.valueChanges()
       .subscribe((docs)=>{
-        // this.repairlogList=docs;
-        // for(var i of docs){
-        //   console.log(this.repairlogLisy)
-        // }
         this.repairlogList = docs;
         this.repairlogList.forEach(function (value){
-          console.log(value.ProjectName, value.Date, value.Partner, value.DevEn)
+         // console.log(value.ProjectName, value.Date, value.Partner, value.DevEn)
         })
 
-        
-        // for(var doc of docs){
-        //   this.idList.add(doc.id);
-        // }
-        // let list = Array.from(this.idList)
-        // //console.log(list);
-        
-       
-        // for(var id of list){
-        //   this.afs.collection('User').doc(this.afAuth.auth.currentUser.uid).valueChanges()
-        //     .subscribe((doc)=>{
-        //       this.itemList.push(doc);
-        //     })
-        // }
 
       })
-
-
-  
   }
 
-
-
-
-
   openDetail(item){
-    // this.navCtrl.push('RepairitemdetailPage',{
-    //   model: item.model,
-    //   id: item.id,
-    //   serialNum: item.serialNum,
-    //   repairman: item.repairman,
-    //   isToggled: item.isToggled,
-    //   startDate: item.startDate,
-    //   finDate: item.finDate
-    // })
+  
     console.log(item.ProjectName) //프로젝트 이름으로 조회해서 navParam 내보내기
     this.navCtrl.push('RepairitemdetailPage', {
       ProjectName : item.ProjectName, 
@@ -125,13 +106,11 @@ export class OnMaintenancePage {
       id : item.id, 
       Date : item.Date, 
       isToggled : item.isToggled, 
-      thumbnail : item.thumbnail
+      thumbnail : item.thumbnail,
+      Owner : item.Owner
     })
 
- //   this.param= this.afs.collection('User').doc(this.afAuth.auth.currentUser.uid).collection<userRepairLog>('On_Project')
-    
-    //this.itemsCollection = this.afs.collection('RepairItem').doc(`${this.id}`).collection<RepairItemLog>('repair', ref => ref.orderBy('timestamp', 'desc'))
-  
+
   }
 
   show(item){
@@ -160,10 +139,7 @@ export class OnMaintenancePage {
   }
 
   real_show(item){
-    // this.usersRepairCollection=afs.collection('User').doc(this.afAuth.auth.currentUser.uid).collection<userRepairLog>('DoneProject')
-      var docRef = this.afs.collection('User').doc(this.afAuth.auth.currentUser.uid)
-      console.log(docRef)
-
+   
       /*  Share 하는 페이지에 보낼 정보
       */
       this.afs.collection('Share').doc(item.ProjectName).set({
@@ -175,11 +151,10 @@ export class OnMaintenancePage {
       isToggled : item.isToggled, 
       thumbnail : item.thumbnail, 
       uid : this.afAuth.auth.currentUser.uid,
-      //Engineer: this.
+      Owner : item.Owner
+
+      //user_name : this.user_name
       })
-      
-
-
   }
 
 

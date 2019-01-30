@@ -7,7 +7,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { CameraOptions, Camera } from '@ionic-native/camera';
 
 
-class RepairLog{
+class RepairLog{ 
   ProjectName : string;
   DevEn: string;
   Partner: string;

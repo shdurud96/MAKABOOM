@@ -46,8 +46,8 @@ export class AllPage {
       content: '',
     });
     loadingPopup.present();
-
-    this.itemsCollection = afs.collection('User').doc(this.afAuth.auth.currentUser.uid).collection<RepairItem>('On_Project');
+    this.itemsCollection = afs.collection<RepairItem>('Share')
+    //this.itemsCollection = afs.collection('User').doc(this.afAuth.auth.currentUser.uid).collection<RepairItem>('On_Project');
     this.items = this.itemsCollection.valueChanges();
     this.items.subscribe((RepairItem) => {
       this.itemArray = RepairItem;
@@ -162,6 +162,30 @@ export class AllPage {
     //console.log(q, this.itemList.length);
   }
 
+  getOwner(searchbar) {
+    // Reset items back to all of the items
+    this.initializeItems();
+
+   // console.log(this.itemList)
+    // set q to the value of the searchbar
+    var q = searchbar.srcElement.value;
+    // if the value is an empty string don't filter the items
+    if (!q) {
+      return;
+    }
+    
+    this.itemList = this.itemList.filter((v) => {
+      if (v.Owner && q) {
+        if (v.Owner.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+        return false;
+      }
+    });
+
+    //console.log(q, this.itemList.length);
+  }
+
 
 
   manage() {
@@ -194,20 +218,13 @@ export class AllPage {
   openDetail(item) {
     this.navCtrl.push('RepairitemdetailPage', {
       ProjectName : item.ProjectName, 
-      DevEn : item.DevelopEnvironment, 
+      DevEn : item.DevEn, 
       Partner : item.Partner, 
       id : item.id, 
       Date : item.Date, 
       isToggled : item.isToggled, 
-      thumbnail : item.thumbnail
-
-/*
-      model: item.model,
-      serialNum: item.serialNum,
-      repairman: item.repairman,
-      isToggled: item.isToggled,
-      startDate: item.startDate,
-      finDate: item.finDate*/
+      thumbnail : item.thumbnail, 
+      Owner : item.Owner
     })
   }
 }

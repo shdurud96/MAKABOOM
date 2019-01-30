@@ -202,34 +202,3 @@ export class MyApp {
   }
 
 }
-
-
-// @Component({
-//   selector: 'page-login-select',
-//   templateUrl: 'login-select.html'
-// })
-// export class LoginSelectPage{
-
-//   public backgroundImage : any = "https://firebasestorage.googleapis.com/v0/b/prototype-d68e4.appspot.com/o/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80.jpg?alt=media&token=9e7f9e83-b6e6-4ea3-abd5-dfb2b8d7e5a4";
-
-//   constructor(public authData : AuthData, public navCtrl : NavController, public viewCtrl:ViewController){
-//   }
-
-//   dismiss(){   //자기 자신을 끄게 해야 한다. ViewController를 이용하여
-//     this.viewCtrl.dismiss();
-//   }
-
-
-//   googleLogin() {
-//     // this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-//     this.authData.googleLogin().then(()=>{
-//       this.navCtrl.setRoot('MainPage');
-//     });
-//   }
-
-//   loginWithEmail() {
-//     this.navCtrl.push('LoginPage');
-//   }
-
-
-// }
