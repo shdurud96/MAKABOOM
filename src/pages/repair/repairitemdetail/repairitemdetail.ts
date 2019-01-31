@@ -67,7 +67,6 @@ export class RepairitemdetailPage {
   close: boolean;
 
   backgroundImage = "https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/detail2.JPG?alt=media&token=bd5f5628-0fc3-40af-8826-b76fe5c08b2e";
-
   item_length: number;
   lastVisible: any;
   db = firebase.firestore();

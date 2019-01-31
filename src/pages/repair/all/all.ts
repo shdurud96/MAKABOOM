@@ -29,7 +29,7 @@ export class AllPage {
   itemArray: any = [];
   loadedItemList: any = [];
   items: any = [];
-  backgroundImage ="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/ongoingback3.JPG?alt=media&token=144c8363-e39a-480c-a18e-e3cde442c5c8";
+  backgroundImage ="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/back_opa.JPG?alt=media&token=2c8c4c00-cc44-4e18-b1e9-557e7c65ce53";
   cardImage = "https://firebasestorage.googleapis.com/v0/b/prototype-d68e4.appspot.com/o/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%802_%ED%88%AC%EB%AA%852.png?alt=media&token=78826653-cbd4-442d-9607-0b03983167b5"
 
   constructor(public loadingCtrl: LoadingController,

@@ -15,21 +15,29 @@
     <p margin-left>
       <font color="white">Develop Environment : {{DevEn}}</font>
     </p>
-    <p margin-left>
+   <!-- <p margin-left>
       <font color="white">Owner : {{Owner}}</font>
     </p>
     <p margin-left>
         <font color="white">Partner : {{Partner}}</font>
-      </p>
+      </p>-->
     
   </div>
 
   <ion-card [ngStyle]="{'background-image': 'url(' + cardImage +')'}">
 
     <ion-card-content no-padding>
+      <ion-item class="item1">
+          <ion-icon name="person" item-left color="white"></ion-icon>
+          <font color="white">Owner : {{Owner}}</font>
+      </ion-item>
+      <ion-item class="item1">
+          <ion-icon name="people" item-left color="white"></ion-icon>
+          <font color="white">Partner : {{Partner}}</font>
+      </ion-item>
 
       <ion-item class="item1">
-        <ion-icon name="person" item-left color="white"></ion-icon>
+        <ion-icon name="calendar" item-left color="white"></ion-icon>
         <font color="white">Date : {{Date}}</font>
       </ion-item>
     </ion-card-content>

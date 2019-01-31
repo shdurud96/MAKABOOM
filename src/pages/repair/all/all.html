@@ -5,31 +5,46 @@
     </button>
     <ion-title>Inspiring Others</ion-title>
   </ion-navbar>
-  <ion-toolbar color="grey-blue">
+  <!--<ion-toolbar color="grey-blue">
       <ion-searchbar  (ionInput)="getItems($event)"></ion-searchbar>
-  </ion-toolbar>
+  </ion-toolbar>-->
 </ion-header>
 
 
+
+
 <ion-content [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
-  <ion-row>
+
+  
+  <ion-row no-padding>
+      <ion-item class="item1">
+          <ion-icon name="desktop" item-left color="grey-blue"></ion-icon>
+          <ion-searchbar  (ionInput)="getItems($event)"></ion-searchbar>
+      </ion-item>
+      <ion-item class="item1">
+          <ion-icon name="person" item-left color="grey-blue"></ion-icon>
+          <ion-searchbar  (ionInput)="getOwner($event)"></ion-searchbar>
+      </ion-item>
+
+
+
     <ion-col col-12 col-md-4 col-xl-3 *ngFor="let item of itemList">
       <ion-card class="card" (click)="openDetail(item)" >
         <!--<img [src]="item.thumbnail" height="200">-->
         <ion-card-content>
 
-          <ion-card-title color="grey-blue">
+          <ion-card-title color="navy">
             {{item.ProjectName}}
           </ion-card-title>
           
           <h5>
-            <font color="grey-blue">Date : {{item.Date}}</font>
+            <font color="black">Date : {{item.Date}}</font>
           </h5>
           <h6>
-            <font color="grey-blue">Deve Env : {{item.DevEn}}</font>
+            <font color="black">Deve Env : {{item.DevEn}}</font>
           </h6>
           <h6>
-            <font color="grey-blue">Owner : {{item.Owner}}</font>
+            <font color="black">Owner : {{item.Owner}}</font>
           </h6>
           <!--<button style="float:right" ion-button icon-start clear small (click)="delete(item)" color="white">
             <ion-icon name="trash"></ion-icon>
