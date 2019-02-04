@@ -16,6 +16,7 @@ class RepairItem{
   id : string;
   thumbnail: string;
   Owner : string;
+  Description : string;
 }
 
 
@@ -33,6 +34,7 @@ export class AddrepairPage {
   Owner
   Date
   thumbnail;
+  Description;
 
   uploadPercent
   snapshot
@@ -116,6 +118,7 @@ export class AddrepairPage {
     this.RepairItem.ProjectName = this.ProjectName;
     this.RepairItem.thumbnail = this.thumbnail;
     this.RepairItem.Owner=this.Owner
+    this.RepairItem.Description=this.Description
     
     console.log(this.Date, this.RepairItem.id)
     this.fireService.ProjectAdd(this.RepairItem)

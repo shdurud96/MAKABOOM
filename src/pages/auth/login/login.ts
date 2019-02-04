@@ -20,7 +20,7 @@ import { NavParams } from 'ionic-angular/navigation/nav-params';
 export class LoginPage {
 
   public loginForm: any;
-  public backgroundImage = "https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/background2.jpg?alt=media&token=f3e16213-65db-4b0c-8d5b-d6a20e0df740"
+  public backgroundImage = "https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/op.JPG?alt=media&token=d4abc0a2-1b50-4106-9ba6-88b23895d5cc"
   // public imgLogo: any = "./assets/medium_150.70391061453px_1202562_easyicon.net.png";
 
   constructor(public afAuth : AngularFireAuth, public navCtrl: NavController, public auth: AuthService, public fb: FormBuilder, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {

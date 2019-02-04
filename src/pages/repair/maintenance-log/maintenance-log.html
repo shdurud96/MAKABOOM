@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>On Going Projects</ion-title>
+    <ion-title>Project OnGoing</ion-title>
   </ion-navbar>
   <ion-toolbar color="grey-blue">
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
@@ -30,7 +30,7 @@
             <font color="white">Dev Env : {{item.DevEn}}</font>
           </h6>
           <h6>
-            <font color="white">Owner : {{item.Owner}}</font>
+            <font color="white">Creator : {{item.Owner}}</font>
           </h6>
           <button style="float:right" ion-button icon-start clear small (click)="delete(item)" color="white">
             <ion-icon name="trash"></ion-icon>

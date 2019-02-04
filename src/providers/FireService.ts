@@ -108,6 +108,7 @@ export class FireService {
       ProjectName : RepairItem.ProjectName, 
       thumbnail:RepairItem.thumbnail,
       isToggled: false,
+      Description : RepairItem.Description,
       Owner : RepairItem.Owner
     }).then(() => {
 

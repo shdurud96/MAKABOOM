@@ -31,7 +31,7 @@
       <ion-input type="text" [(ngModel)]="DevEn"></ion-input>
     </ion-item>
     <ion-item class="">
-      <ion-label floating>Owner</ion-label>
+      <ion-label floating>Creator</ion-label>
       <ion-input type="text" [(ngModel)]="Owner"></ion-input>
     </ion-item>
     <ion-item class="">
@@ -42,6 +42,10 @@
         <ion-label *ngIf="!Date" floating>Date</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="Date"></ion-datetime>
     </ion-item>
+    <ion-item class="" text-wrap>
+      <ion-label floating>Description</ion-label>
+      <ion-input type="text" [(ngModel)]="Description"></ion-input>
+  </ion-item>
 
     <!--
     <ion-item class="back">

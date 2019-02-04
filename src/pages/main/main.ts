@@ -19,7 +19,7 @@ import { AuthService } from '../../providers/auth.service';
 })
 export class MainPage {
 
-  public backgroundImage: any = "https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/background2.jpg?alt=media&token=f3e16213-65db-4b0c-8d5b-d6a20e0df740";
+  public backgroundImage: any = "https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/op.JPG?alt=media&token=d4abc0a2-1b50-4106-9ba6-88b23895d5cc";
 
   payload: string;
   login: boolean;

@@ -1,6 +1,7 @@
 <style>
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 800px) {
         .slide {
+            height: 500px;
             display: none;
         }
         .card {
@@ -90,28 +91,28 @@
 
         <div class="card-background-page">
             <ion-row>
-                <ion-col col-12 col-md-12>
+                <ion-col col-12 col-md-4>
                     <ion-card class="card" (click)="openManage()">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/project.JPG?alt=media&token=bb2ed0b2-1ee5-4bff-8d55-79e8e822c9db"
+                        <img src="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/op_on.JPG?alt=media&token=573f4869-cd0a-47f0-9cf3-319733fd8a45"
                             height="350" />
-                            <div class="card-title">On Going Projects</div>
+                            <div class="card-title">Project OnGoing</div>
                             <div class="card-subtitle">My Robot is Getting Cool!</div>
                     </ion-card>
                 </ion-col>
 
-                <ion-col col-12 col-md-12>
+                <ion-col col-12 col-md-4>
                     <ion-card class="card" (click)="openLog()">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/lego.jpg?alt=media&token=ffab0ccf-69a3-4ab3-be11-7aa2f7defa57"
+                        <img src="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/op_com.JPG?alt=media&token=afd20c67-f196-40a0-899e-5bd08f1c5351"
                             height="350" />
-                            <div class="card-title">Done Projects</div>
+                            <div class="card-title">Project Completed</div>
                             <div class="card-subtitle">The Robots I Made!</div>
                     </ion-card>
                 </ion-col>
-                <ion-col col-12 col-md-12>
+                <ion-col col-12 col-md-4>
                     <ion-card class="card" (click)="openAll()">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/inspiring10.jpg?alt=media&token=d522a8a7-ec26-4070-8132-d676dac477d9"
+                        <img src="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/inspiring9.jpg?alt=media&token=ed8c884a-3d58-40da-a899-4ce354c5da10"
                             height="350" />
-                            <div class="card-title">Inspiring Others</div>
+                            <div class="card-title">Show and Tell</div>
                             <div class="card-subtitle">The Robots We Made!</div>
                     </ion-card>
                 </ion-col>    
@@ -158,7 +159,7 @@
     <div *ngIf="viewType==='Notice'">
         <ion-grid>
             <ion-row>
-                <ion-col col-12 col-md-6 *ngFor="let item of items">
+                <ion-col col-12 col-md-4 *ngFor="let item of items">
                     <div class="card" margin-top padding tappable (click)="openNoticeDetailPage(item)">
                         <h2 style="color : white">
                             <strong>{{item.title}}</strong>

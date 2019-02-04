@@ -13,6 +13,7 @@ interface RepairItem {
   Date: Date;
   id : string;
   thumbnail: string;
+  Description : string;
 }
 
 @IonicPage()
@@ -224,7 +225,8 @@ export class AllPage {
       Date : item.Date, 
       isToggled : item.isToggled, 
       thumbnail : item.thumbnail, 
-      Owner : item.Owner
+      Owner : item.Owner,
+      Description : item.Description
     })
   }
 }

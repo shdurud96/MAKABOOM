@@ -14,6 +14,7 @@ interface userRepairLog {
   Date: Date;
   id : string;
   thumbnail: string;
+  Description : string;
 
 }
 
@@ -34,6 +35,7 @@ interface RepairItem {
   Date: Date;
   id : string;
   thumbnail: string;
+  Description : string;
 }
 
 
@@ -66,7 +68,7 @@ export class OnMaintenancePage {
   uniqueIdList: any = []
 
   id: string;
-  backgroundImage = "https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/ongoingback3.JPG?alt=media&token=144c8363-e39a-480c-a18e-e3cde442c5c8";
+  backgroundImage = "https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/realback.JPG?alt=media&token=3f1ab8c6-4d9a-48e1-ae6f-99bd6d043dd6";
 
   constructor( public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, public afs: AngularFirestore, public afAuth:AngularFireAuth, public global : GlobalVars) {
     console.log("real show")
@@ -107,7 +109,8 @@ export class OnMaintenancePage {
       Date : item.Date, 
       isToggled : item.isToggled, 
       thumbnail : item.thumbnail,
-      Owner : item.Owner
+      Owner : item.Owner, 
+      Description : item.Description
     })
 
 
@@ -151,7 +154,8 @@ export class OnMaintenancePage {
       isToggled : item.isToggled, 
       thumbnail : item.thumbnail, 
       uid : this.afAuth.auth.currentUser.uid,
-      Owner : item.Owner
+      Owner : item.Owner, 
+      Description : item.Description
 
       //user_name : this.user_name
       })

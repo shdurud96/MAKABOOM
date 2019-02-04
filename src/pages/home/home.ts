@@ -18,7 +18,7 @@ export class HomePage {
   stock_card: any[] = [];
   items: any;
   // show
-  backgroundImage="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/ongoingback2.JPG?alt=media&token=837992e3-f1e1-47ae-b6bb-67d10395acab";
+  backgroundImage="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/realback.JPG?alt=media&token=3f1ab8c6-4d9a-48e1-ae6f-99bd6d043dd6";
   
   constructor(public navCtrl: NavController, public DB: AngularFirestore, public navParams: NavParams,
     public loadingCtrl: LoadingController, public alertCtrl: AlertController,

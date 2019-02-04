@@ -15,6 +15,7 @@ class RepairItem {
   id : string;
   thumbnail: string;
   Owner : string;
+  Description : string;
 }
 
 interface RepairItemLog {
@@ -56,6 +57,7 @@ export class RepairitemdetailPage {
   startDate: Date;
   finDate: Date
   isToggled: boolean;
+  Description : string;
   
   ProjectName : string;
   DevEn: string;
@@ -86,6 +88,7 @@ export class RepairitemdetailPage {
       this.isToggled=this.navParams.get('isToggled')
       this.thumbnail=this.navParams.get('thumbnail')
       this.Owner=this.navParams.get('Owner')
+      this.Description = this.navParams.get('Description')
 
 
       /*

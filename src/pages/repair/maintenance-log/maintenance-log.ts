@@ -14,6 +14,7 @@ interface RepairItem {
   id : string;
   thumbnail: string;
   Owner : string;
+  Description : string;
 }
 
 @IonicPage()
@@ -30,7 +31,7 @@ export class MaintenanceLogPage {
   itemArray: any = [];
   loadedItemList: any = [];
   items: any = [];
-  backgroundImage ="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/ongoingback3.JPG?alt=media&token=144c8363-e39a-480c-a18e-e3cde442c5c8";
+  backgroundImage ="https://firebasestorage.googleapis.com/v0/b/makaboom-4e68b.appspot.com/o/realback.JPG?alt=media&token=3f1ab8c6-4d9a-48e1-ae6f-99bd6d043dd6";
   cardImage = "https://firebasestorage.googleapis.com/v0/b/prototype-d68e4.appspot.com/o/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%802_%ED%88%AC%EB%AA%852.png?alt=media&token=78826653-cbd4-442d-9607-0b03983167b5"
 
   constructor(public loadingCtrl: LoadingController,
@@ -142,7 +143,8 @@ export class MaintenanceLogPage {
       Date : item.Date, 
       isToggled : item.isToggled, 
       thumbnail : item.thumbnail, 
-      Owner : item.Owner
+      Owner : item.Owner, 
+      Description : item.Description
     })
     
   }
@@ -209,7 +211,8 @@ export class MaintenanceLogPage {
       Date : item.Date, 
       isToggled : item.isToggled, 
       thumbnail : item.thumbnail,
-      Owner : item.Owner
+      Owner : item.Owner, 
+      Description : item.Description
     })
   }
 }
