@@ -8,6 +8,30 @@
 
 <ion-content no-padding [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
 
+<ion-card [ngStyle]="{'background-image' : 'url('+cardImage+')'}">
+<ion-card-content no-padding>
+  <ion-item class="item1">
+    <font color="white" size="5">{{ProjectName}}</font>
+  </ion-item>
+  <ion-item class="item1" text-wrap>
+    <font color="white">{{Description}}</font>
+  </ion-item>
+</ion-card-content>
+</ion-card>
+
+<div class="title">
+  <p margin-left>
+    <font color="white">Creator : {{Owner}}</font>
+  </p>
+  <p margin-left>
+      <font color="white">Partner : {{Partner}}</font>
+    </p>
+    <p margin-left>
+        <font color="white">Date : {{Date}}</font>
+      </p>
+
+</div>
+  <!--
   <div class="title">
     <h2 margin-left>
       <font color="white">Project Name : {{ProjectName}}</font>
@@ -15,12 +39,6 @@
     <p margin-left>
       <font color="white">Develop Environment : {{DevEn}}</font>
     </p>
-   <!-- <p margin-left>
-      <font color="white">Owner : {{Owner}}</font>
-    </p>
-    <p margin-left>
-        <font color="white">Partner : {{Partner}}</font>
-      </p>-->
     
   </div>
 
@@ -46,6 +64,7 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
+-->
 
 
   <ion-card-content>
