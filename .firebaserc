@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "prototype-d68e4"
+    "default": "makaboom-4e68b",
+    "makaboom": "makaboom-4e68b"
   }
 }

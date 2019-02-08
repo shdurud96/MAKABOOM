@@ -18,7 +18,7 @@ import { AuthorizationPage } from './authorization/authorization';
 import { GlobalVars } from '../providers/global';
 import { FillPage } from '../pages/home/change-log/change-log';
 import { IonicPageModule } from 'ionic-angular/module';
-import { NgxQRCodeModule } from 'ngx-qrcode2';
+
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { AuthService } from '../providers/auth.service';
 import { Camera } from '@ionic-native/camera'
@@ -54,7 +54,7 @@ export const config = {
     AngularFireAuthModule,
     AngularFirestoreModule,
     IonicPageModule, 
-    NgxQRCodeModule,
+ 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
