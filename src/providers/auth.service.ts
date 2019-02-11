@@ -10,7 +10,7 @@ import { User } from "../form/user";
 @Injectable()
 export class AuthService {
 
-    user: Observable<User>;  //항상 user의 로그인 상태를 check
+    user: Observable<User>;  //항상 user의  상태를 check
     userCheck: Observable<User> //로그인 할 때 한 번만(take(1)써서) valid한 user인지 check
 
     constructor(private afAuth: AngularFireAuth,

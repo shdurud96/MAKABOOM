@@ -1,5 +1,5 @@
 <style>
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 500px) {
     .web {
       display: none;
     }
@@ -9,7 +9,7 @@
     }
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 500px) {
     .web {
       display: block;
     }
@@ -25,7 +25,7 @@
   <ion-navbar color="grey-blue">
     <ion-title>Project Completed</ion-title>
   </ion-navbar>
-  <div class="mobile">
+  <div class="web">
     <ion-toolbar no-border-top color="grey-blue">
       <ion-segment [(ngModel)]="viewType" color="light">
         <ion-segment-button value="Item">
@@ -41,7 +41,7 @@
 
 
 <ion-content padding [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
-  <div class="web">
+  <div class="mobile">
 
       <div class="container">
           <ion-row>
@@ -102,7 +102,7 @@
 
 
 
-  <div class="mobile">
+  <div class="web">
     <div *ngIf="viewType==='Timeline'">
 
       <div class="container">
